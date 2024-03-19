@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?><!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="Fragment Admin"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textAlignment="center" />&ndash;&gt;-->
+<!--    -->
+<!--    -->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sand">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitleAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/gradient_background"
+            android:fontFamily="casual"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:text="Admin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/circular_background"
+                    android:src="@drawable/profile" />
+
+                <TextView
+                    android:id="@+id/tvLabelName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingHorizontal="20dp"
+                    android:text="Aula" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="Layanan"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clKodeRef"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:orientation="horizontal"
+                    android:paddingVertical="5dp">
+
+                    <ImageView
+                        android:id="@+id/ivKodeRef"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/baseline_card_giftcard_24"
+                        app:layout_constraintStart_toStartOf="@id/clKodeRef"
+                        app:layout_constraintTop_toTopOf="@id/clKodeRef" />
+
+                    <TextView
+                        android:id="@+id/tvKodeRef"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="Kode Referal"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/clKodeRef"
+                        app:layout_constraintStart_toEndOf="@id/ivKodeRef"
+                        app:layout_constraintTop_toTopOf="@+id/clKodeRef" />
+
+                    <ImageView
+                        android:id="@+id/ivArrowKodeRef"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        app:layout_constraintBottom_toBottomOf="@id/clKodeRef"
+                        app:layout_constraintEnd_toEndOf="@id/clKodeRef"
+                        app:layout_constraintTop_toTopOf="@id/clKodeRef" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clKodeCab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:orientation="horizontal"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/clKodeRef">
+
+                    <ImageView
+                        android:id="@+id/ivKodeCab"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/carbon__location"
+                        app:layout_constraintStart_toStartOf="@id/clKodeCab"
+                        app:layout_constraintTop_toTopOf="@+id/clKodeCab" />
+
+                    <TextView
+                        android:id="@+id/tvKodeCab"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="Lokasi Cabang"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/clKodeCab"
+                        app:layout_constraintStart_toEndOf="@id/ivKodeCab"
+                        app:layout_constraintTop_toTopOf="@+id/clKodeCab" />
+
+                    <ImageView
+                        android:id="@+id/ivArrowKodeCab"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        app:layout_constraintBottom_toBottomOf="@id/clKodeCab"
+                        app:layout_constraintEnd_toEndOf="@id/clKodeCab"
+
+
+                        app:layout_constraintTop_toTopOf="@id/clKodeCab" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="Administrasi"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clUbahEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:orientation="horizontal"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/clKodeCab">
+
+                    <ImageView
+                        android:id="@+id/ivUbahEmail"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/baseline_email_24"
+                        app:layout_constraintStart_toStartOf="@id/clUbahEmail"
+                        app:layout_constraintTop_toTopOf="@+id/clUbahEmail" />
+
+                    <TextView
+                        android:id="@+id/tvUbahEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="Ubah Email"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/clUbahEmail"
+                        app:layout_constraintStart_toEndOf="@id/ivUbahEmail"
+                        app:layout_constraintTop_toTopOf="@+id/clUbahEmail" />
+
+                    <ImageView
+                        android:id="@+id/ivArrowUbahEmail"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        app:layout_constraintBottom_toBottomOf="@id/clUbahEmail"
+                        app:layout_constraintEnd_toEndOf="@id/clUbahEmail"
+
+                        app:layout_constraintTop_toTopOf="@id/clUbahEmail" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clKodeAkses"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:orientation="horizontal"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/clKodeCab">
+
+                    <ImageView
+                        android:id="@+id/ivKodeAkses"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ep__unlock"
+                        app:layout_constraintStart_toStartOf="@id/clKodeAkses"
+                        app:layout_constraintTop_toTopOf="@+id/clKodeAkses" />
+
+                    <TextView
+                        android:id="@+id/tvKodeAkses"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="Ubah Kode Akses"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/clKodeAkses"
+                        app:layout_constraintStart_toEndOf="@id/ivKodeAkses"
+                        app:layout_constraintTop_toTopOf="@+id/clKodeAkses" />
+
+                    <ImageView
+                        android:id="@+id/ivArrowKodeAkses"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        app:layout_constraintBottom_toBottomOf="@id/clKodeAkses"
+                        app:layout_constraintEnd_toEndOf="@id/clKodeAkses"
+
+                        app:layout_constraintTop_toTopOf="@id/clKodeAkses" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clUbahPin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:orientation="horizontal"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/clKodeCab">
+
+                    <ImageView
+                        android:id="@+id/ivUbahPin"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/iconoir__dialpad"
+                        app:layout_constraintStart_toStartOf="@id/clUbahPin"
+                        app:layout_constraintTop_toTopOf="@+id/clUbahPin" />
+
+                    <TextView
+                        android:id="@+id/tvUbahPin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:text="Ubah Kode Akses"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/clUbahPin"
+                        app:layout_constraintStart_toEndOf="@id/ivUbahPin"
+                        app:layout_constraintTop_toTopOf="@+id/clUbahPin" />
+
+                    <ImageView
+                        android:id="@+id/ivArrowUbahPin"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        app:layout_constraintBottom_toBottomOf="@id/clUbahPin"
+                        app:layout_constraintEnd_toEndOf="@id/clUbahPin"
+                        app:layout_constraintTop_toTopOf="@id/clUbahPin" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:padding="20dp">-->
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/ivProfile"-->
+        <!--                android:layout_width="150dp"-->
+        <!--                android:layout_height="150dp"-->
+        <!--                android:background="@drawable/circular_background"-->
+        <!--                android:src="@drawable/profile"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/tvLabelName"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center_horizontal"-->
+        <!--                android:layout_marginVertical="10dp"-->
+        <!--                android:text="Name  : Aula" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/tvGender"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center_horizontal"-->
+        <!--                android:layout_marginVertical="10dp"-->
+        <!--                android:text="Gender    : Female" />-->
+
+        <!--        </LinearLayout>-->
+    </androidx.cardview.widget.CardView>
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnLogout"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginVertical="10dp"-->
+    <!--        android:backgroundTint="@color/dark_blue"-->
+    <!--        android:text="Log Out"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/cvContainer" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

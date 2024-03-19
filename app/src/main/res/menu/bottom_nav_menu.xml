@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationHome"
+        android:title="Beranda"
+        android:icon="@drawable/home_icon_silhouette_svgrepo_com"/>
+    <item
+        android:id="@+id/navigationInbox"
+        android:title="Inbox"
+        android:icon="@drawable/baseline_all_inbox_24"/>
+    <item
+        android:id="@+id/navigationAdmin"
+        android:title="Admin"
+        android:icon="@drawable/baseline_admin_panel_settings_24"/>
+    <item
+        android:id="@+id/navigationMessage"
+        android:title="Admin"
+        android:icon="@drawable/baseline_admin_panel_settings_24"/>
+    <item
+        android:id="@+id/navigationLogout"
+        android:title="Logout"
+        android:icon="@drawable/logout_svgrepo_com"/>
+</menu>
