@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background with rounded corners -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white"/>
+            <corners android:radius="20dp" /> <!-- Corner radius -->
+        </shape>
+    </item>
+    <!-- Shadow effect -->
+    <item android:top="1dp" android:right="1dp" android:left="1dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#20000000" /> <!-- Shadow color -->
+            <corners android:radius="20dp" /> <!-- Corner radius, match background -->
+        </shape>
+    </item>
+</layer-list>
