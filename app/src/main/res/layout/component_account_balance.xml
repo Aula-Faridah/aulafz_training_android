@@ -31,11 +31,11 @@
         android:id="@+id/rvAccountBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/item_account_balance"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitleRekeningku" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitleRekeningku"
+        tools:listitem="@layout/item_account_balance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

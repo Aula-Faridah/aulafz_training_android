@@ -12,10 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bcasbdpit.R
 import com.example.bcasbdpit.adapter.AccountBalanceAdapter
+import com.example.bcasbdpit.adapter.PromoAdapter
 import com.example.bcasbdpit.base.BaseFragment
 import com.example.bcasbdpit.databinding.FragmentDashboardBinding
 import com.example.bcasbdpit.model.AccountBalanceModel
 import com.example.bcasbdpit.model.MenuDashboardModel
+import com.example.bcasbdpit.model.PromoModel
 import com.example.bcasbdpit.presentation.fragment.adapter.DashboardMenuAdapter
 
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
@@ -37,6 +39,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private lateinit var menuAdapter: DashboardMenuAdapter
     private lateinit var balanceAdapter: AccountBalanceAdapter
+    private lateinit var promoAdapter: PromoAdapter
 
 
     private val horizontalItemDecoration by lazy {
@@ -45,6 +48,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             true
         )
     }
+
     override fun inflateBinding(
         inflater: LayoutInflater, container: ViewGroup?
     ): FragmentDashboardBinding {
@@ -54,9 +58,10 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     override fun setUpView() {
         setupViewMenu()
         setupViewAccountBalance()
+        setupViewPromo()
     }
 
-    private fun setupViewMenu(){
+    private fun setupViewMenu() {
         menuAdapter = DashboardMenuAdapter(
             menuData = populateDataMenu(), context = binding.root.context
         )
@@ -70,21 +75,38 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             }
     }
 
-    private fun setupViewAccountBalance(){
+    private fun setupViewAccountBalance() {
         balanceAdapter = AccountBalanceAdapter(
             data = populateDataAccountNumber()
         )
 
         binding.componentAccount.rvAccountBalance.adapter = balanceAdapter
         binding.componentAccount.rvAccountBalance.layoutManager = LinearLayoutManager(
-            binding.root.context, LinearLayoutManager.HORIZONTAL,false
+            binding.root.context, LinearLayoutManager.HORIZONTAL, false
         )
         binding.componentAccount.rvAccountBalance.apply {
-            if (itemDecorationCount <= 0){
+            if (itemDecorationCount <= 0) {
                 addItemDecoration(horizontalItemDecoration)
             }
         }
     }
+
+    private fun setupViewPromo() {
+        promoAdapter = PromoAdapter(
+            data = populatePromo()
+        )
+
+        binding.componentPromo.rvPromo.adapter = promoAdapter
+        binding.componentPromo.rvPromo.layoutManager = LinearLayoutManager(
+            binding.root.context, LinearLayoutManager.HORIZONTAL, false
+        )
+        binding.componentPromo.rvPromo.apply {
+            if (itemDecorationCount <= 0) {
+                addItemDecoration(horizontalItemDecoration)
+            }
+        }
+    }
+
     private fun populateDataMenu(): List<MenuDashboardModel> {
         return listOf(
             MenuDashboardModel(R.drawable.fa_brands__telegram_plane, "Transfer"),
@@ -103,9 +125,31 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private fun populateDataAccountNumber(): List<AccountBalanceModel> {
         return listOf(
-            AccountBalanceModel(savingType = "Mudharabah", accountNumber = "001234", savingBalance = 15600700.00),
-            AccountBalanceModel(savingType = "Wadiah", accountNumber = "112344", savingBalance = 98904078.00),
-            AccountBalanceModel(savingType = "Wadiah non Bonus", accountNumber = "778902", savingBalance = 25688222.00),
+            AccountBalanceModel(
+                savingType = "Mudharabah",
+                accountNumber = "001234",
+                savingBalance = 15600700.00
+            ),
+            AccountBalanceModel(
+                savingType = "Wadiah",
+                accountNumber = "112344",
+                savingBalance = 98904078.00
+            ),
+            AccountBalanceModel(
+                savingType = "Wadiah non Bonus",
+                accountNumber = "778902",
+                savingBalance = 25688222.00
+            ),
+        )
+    }
+
+    private fun populatePromo(): List<PromoModel> {
+        return listOf(
+            PromoModel(imagePromo = R.drawable.promo1),
+            PromoModel(imagePromo = R.drawable.promo2),
+            PromoModel(imagePromo = R.drawable.promo3),
+            PromoModel(imagePromo = R.drawable.promo4),
+            PromoModel(imagePromo = R.drawable.promo5)
         )
     }
 
