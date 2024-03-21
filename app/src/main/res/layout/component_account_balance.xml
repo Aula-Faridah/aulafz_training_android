@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:text="Rekeningku (Saldo Efektif)"
         android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,6 +25,8 @@
         android:text="Lihat Semua"
         android:textColor="@color/blue_bcas_2"
         android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -9,6 +9,8 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.view.menu.MenuAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bcasbdpit.R
 import com.example.bcasbdpit.adapter.AccountBalanceAdapter
@@ -19,6 +21,7 @@ import com.example.bcasbdpit.model.AccountBalanceModel
 import com.example.bcasbdpit.model.MenuDashboardModel
 import com.example.bcasbdpit.model.PromoModel
 import com.example.bcasbdpit.presentation.fragment.adapter.DashboardMenuAdapter
+import com.example.bcasbdpit.presentation.viewmodel.DashboardViewModel
 
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 //    private var _binding: FragmentDashboardBinding? = null
@@ -36,6 +39,8 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
 //    }
+
+    private val viewModel: DashboardViewModel by viewModels()
 
     private lateinit var menuAdapter: DashboardMenuAdapter
     private lateinit var balanceAdapter: AccountBalanceAdapter
@@ -56,28 +61,47 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     }
 
     override fun setUpView() {
-        setupViewMenu()
-        setupViewAccountBalance()
-        setupViewPromo()
+//        setupViewMenu()
+//        setupViewAccountBalance()
+//        setupViewPromo()
+
+
+        viewModel.getHomeMenu()
+        viewModel.getAccountBalance()
+        viewModel.getPromo()
+        observeViewModel()
     }
 
-    private fun setupViewMenu() {
+    private fun observeViewModel() {
+        viewModel.homeMenu.observe(viewLifecycleOwner) {
+            setupViewMenu(it)
+        }
+        viewModel.accountBalance.observe(viewLifecycleOwner) {
+            setupViewAccountBalance(it)
+        }
+        viewModel.promo.observe(viewLifecycleOwner){
+            setupViewPromo(it)
+        }
+    }
+
+    private fun setupViewMenu(data: List<MenuDashboardModel>) {
         menuAdapter = DashboardMenuAdapter(
-            menuData = populateDataMenu(), context = binding.root.context
+            menuData = data,
+            context = binding.root.context
         )
 
         binding.componentMenu.gridMenu.adapter = menuAdapter
         binding.componentMenu.gridMenu.onItemClickListener =
             AdapterView.OnItemClickListener { _, _, position, _ ->
                 Toast.makeText(
-                    binding.root.context, populateDataMenu()[position].menuName, Toast.LENGTH_SHORT
+                    binding.root.context, data[position].menuName, Toast.LENGTH_SHORT
                 ).show()
             }
     }
 
-    private fun setupViewAccountBalance() {
+    private fun setupViewAccountBalance(data: List<AccountBalanceModel>) {
         balanceAdapter = AccountBalanceAdapter(
-            data = populateDataAccountNumber()
+            data = data
         )
 
         binding.componentAccount.rvAccountBalance.adapter = balanceAdapter
@@ -91,9 +115,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         }
     }
 
-    private fun setupViewPromo() {
+    private fun setupViewPromo(data: List<PromoModel>) {
         promoAdapter = PromoAdapter(
-            data = populatePromo()
+            data = data
         )
 
         binding.componentPromo.rvPromo.adapter = promoAdapter
@@ -106,51 +130,4 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             }
         }
     }
-
-    private fun populateDataMenu(): List<MenuDashboardModel> {
-        return listOf(
-            MenuDashboardModel(R.drawable.fa_brands__telegram_plane, "Transfer"),
-            MenuDashboardModel(R.drawable.grommet_icons__basket, "Pembelian"),
-            MenuDashboardModel(R.drawable.majesticons__creditcard_hand_line, "Pembayaran"),
-            MenuDashboardModel(R.drawable.cardless, "Cardless"),
-            MenuDashboardModel(
-                R.drawable.icon_park_outline__history_query, "Histori Transaksi Transaksi"
-            ),
-            MenuDashboardModel(
-                R.drawable.icon_park_outline__transaction, "Mutasi Rekening Rekening"
-            ),
-            MenuDashboardModel(R.drawable.mosque, "Jadwal Sholat"),
-        )
-    }
-
-    private fun populateDataAccountNumber(): List<AccountBalanceModel> {
-        return listOf(
-            AccountBalanceModel(
-                savingType = "Mudharabah",
-                accountNumber = "001234",
-                savingBalance = 15600700.00
-            ),
-            AccountBalanceModel(
-                savingType = "Wadiah",
-                accountNumber = "112344",
-                savingBalance = 98904078.00
-            ),
-            AccountBalanceModel(
-                savingType = "Wadiah non Bonus",
-                accountNumber = "778902",
-                savingBalance = 25688222.00
-            ),
-        )
-    }
-
-    private fun populatePromo(): List<PromoModel> {
-        return listOf(
-            PromoModel(imagePromo = R.drawable.promo1),
-            PromoModel(imagePromo = R.drawable.promo2),
-            PromoModel(imagePromo = R.drawable.promo3),
-            PromoModel(imagePromo = R.drawable.promo4),
-            PromoModel(imagePromo = R.drawable.promo5)
-        )
-    }
-
 }
