@@ -30,6 +30,10 @@
                 android:id="@+id/componentAccount"
                 layout="@layout/component_account_balance"/>
 
+            <include
+                android:id="@+id/componentPromo"
+                layout="@layout/component_promo"
+                />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
