@@ -6,7 +6,9 @@ import com.example.bcasbdpit.R
 import com.example.bcasbdpit.databinding.ActivityDetailTransactionBinding
 import com.example.bcasbdpit.model.TransactionModel
 import com.example.bcasbdpit.presentation.TransactionActivity.Companion.TRANSACTION_KEY
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailTransactionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailTransactionBinding

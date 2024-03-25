@@ -9,8 +9,10 @@ import com.example.bcasbdpit.R
 import com.example.bcasbdpit.presentation.RegisterActivity.Companion.KEY_NAME
 import com.example.bcasbdpit.databinding.ActivityLoginBinding
 import com.example.bcasbdpit.utils.SharePrefHelper
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.UUID
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity(), PlayMusic {
     private lateinit var binding: ActivityLoginBinding
 

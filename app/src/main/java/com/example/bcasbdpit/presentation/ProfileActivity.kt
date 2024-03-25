@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.bcasbdpit.R
 import com.example.bcasbdpit.presentation.RegisterActivity.Companion.KEY_NAME
 import com.example.bcasbdpit.databinding.ActivityProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityProfileBinding

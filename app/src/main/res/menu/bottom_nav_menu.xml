@@ -14,8 +14,8 @@
         android:icon="@drawable/baseline_admin_panel_settings_24"/>
     <item
         android:id="@+id/navigationMessage"
-        android:title="Admin"
-        android:icon="@drawable/baseline_admin_panel_settings_24"/>
+        android:title="Message"
+        android:icon="@drawable/baseline_email_24"/>
     <item
         android:id="@+id/navigationLogout"
         android:title="Logout"

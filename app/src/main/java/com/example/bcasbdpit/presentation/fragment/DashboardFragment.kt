@@ -18,11 +18,14 @@ import com.example.bcasbdpit.adapter.PromoAdapter
 import com.example.bcasbdpit.base.BaseFragment
 import com.example.bcasbdpit.databinding.FragmentDashboardBinding
 import com.example.bcasbdpit.model.AccountBalanceModel
+import com.example.bcasbdpit.model.MenuDashboard
 import com.example.bcasbdpit.model.MenuDashboardModel
 import com.example.bcasbdpit.model.PromoModel
 import com.example.bcasbdpit.presentation.fragment.adapter.DashboardMenuAdapter
 import com.example.bcasbdpit.presentation.viewmodel.DashboardViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 //    private var _binding: FragmentDashboardBinding? = null
 //    private val binding get() = _binding!!
@@ -74,19 +77,24 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private fun observeViewModel() {
         viewModel.homeMenu.observe(viewLifecycleOwner) {
-            setupViewMenu(it)
+            setupViewMenu(it.data)
         }
         viewModel.accountBalance.observe(viewLifecycleOwner) {
             setupViewAccountBalance(it)
         }
-        viewModel.promo.observe(viewLifecycleOwner){
+        viewModel.promo.observe(viewLifecycleOwner) {
             setupViewPromo(it)
         }
     }
 
-    private fun setupViewMenu(data: List<MenuDashboardModel>) {
+    private fun setupViewMenu(data: List<MenuDashboard>?) {
+//        if (data != null) {
+//
+//        } else {
+//        }
         menuAdapter = DashboardMenuAdapter(
-            menuData = data,
+
+            menuData = data ?: listOf(),
             context = binding.root.context
         )
 
@@ -94,7 +102,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         binding.componentMenu.gridMenu.onItemClickListener =
             AdapterView.OnItemClickListener { _, _, position, _ ->
                 Toast.makeText(
-                    binding.root.context, data[position].menuName, Toast.LENGTH_SHORT
+                    binding.root.context, data?.get(position)?.nameMenu, Toast.LENGTH_SHORT
                 ).show()
             }
     }

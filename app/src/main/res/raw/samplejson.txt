@@ -1,0 +1,68 @@
+//JSON bertipe objek
+
+{
+  "usename": "Affan",
+  "user_address": "Ciledug",
+  "user_email": "affan@ciledug.com",
+  "user_acadmic": {
+    "    user_university": ".",
+    "user_highschool": ""
+  }
+}
+
+//JSON bertipe array
+
+[
+  "budi",
+  "sendia",
+  "tarjo"
+]
+
+
+data class User(
+val name: String
+)
+
+List<String>
+
+{
+"data":[
+"budi",
+"sendia",
+"tarjo"
+]
+}
+
+data class User{
+@Serilizable("username")
+
+val name: String
+
+
+{
+"username": [
+{
+"id": 123
+"Name": "Afan"
+},
+{
+"username": [
+{
+"id": 123
+"Name": "Afan"
+}
+}
+]
+}
+
+data class UserProfile(
+@Serializable(username)
+val username: List<UserData>
+)
+
+data class UserData(
+@Serializable("id")
+val userId: Int,
+@Serializable("name")
+val userName: String
+)

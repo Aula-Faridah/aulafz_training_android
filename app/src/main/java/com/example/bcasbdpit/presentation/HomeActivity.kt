@@ -12,7 +12,9 @@ import com.example.bcasbdpit.presentation.fragment.MessageFragment
 import com.example.bcasbdpit.utils.ConfirmationDialogueUtil
 import com.example.bcasbdpit.utils.SharePrefHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding

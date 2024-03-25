@@ -8,12 +8,13 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.bcasbdpit.R
+import com.example.bcasbdpit.model.MenuDashboard
 import com.example.bcasbdpit.model.MenuDashboardModel
 import java.security.PrivateKey
 
 
 class DashboardMenuAdapter(
-    private val menuData : List<MenuDashboardModel>,
+    private val menuData : List<MenuDashboard>,
     private val context: Context
 ) : BaseAdapter() {
     private var layoutInflater: LayoutInflater? = null
@@ -47,8 +48,8 @@ class DashboardMenuAdapter(
 
         // get data from list according position
         val result = menuData[position]
-        image?.setImageResource(result.image)
-        textMenu?.text = result.menuName
+//        image?.setImageResource(result.image)
+        textMenu?.text = result.nameMenu
 
         return bindingView
     }
